@@ -1,22 +1,24 @@
 #include "FileHandler.hpp"
 #include <fstream>
 
-bool FileHandler::readFile(const std::string& filename, std::vector<std::string>& buffer) {
-    std::ifstream file(filename);
+using namespace std;
+
+bool FileHandler::readFile(const string& filename, vector<string>& buffer) {
+    ifstream file(filename);
     if (!file) {
         return false;
     }
     
-    std::string line;
-    while (std::getline(file, line)) {
+    string line;
+    while (getline(file, line)) {
         buffer.push_back(line);
     }
     
     return true;
 }
 
-bool FileHandler::writeFile(const std::string& filename, const std::vector<std::string>& buffer) {
-    std::ofstream file(filename);
+bool FileHandler::writeFile(const string& filename, const vector<string>& buffer) {
+    ofstream file(filename);
     if (!file) {
         return false;
     }
